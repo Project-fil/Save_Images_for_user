@@ -8,12 +8,19 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
 
 @Service
 @RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
+
+    @Override
+    public boolean checkByEmail(String email) {
+        UserEntity userEntity = this.userRepository.findByEmail(email).orElse(null);
+        return Objects.isNull(userEntity);
+    }
 
     @Override
     public List<UserEntity> getAll() {

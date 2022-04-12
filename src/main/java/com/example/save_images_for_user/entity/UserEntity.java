@@ -1,6 +1,6 @@
 package com.example.save_images_for_user.entity;
 
-import com.example.save_images_for_user.util.RoleType;
+import com.example.save_images_for_user.entity.enums.RoleType;
 import lombok.*;
 import org.hibernate.Hibernate;
 import org.hibernate.annotations.CreationTimestamp;

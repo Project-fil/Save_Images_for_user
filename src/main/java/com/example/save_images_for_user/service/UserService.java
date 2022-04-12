@@ -6,6 +6,8 @@ import java.util.List;
 
 public interface UserService {
 
+    boolean checkByEmail(String email);
+
     List<UserEntity> getAll();
 
     UserEntity getById(long id);

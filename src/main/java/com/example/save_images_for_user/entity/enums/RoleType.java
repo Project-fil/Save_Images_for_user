@@ -1,4 +1,4 @@
-package com.example.save_images_for_user.util;
+package com.example.save_images_for_user.entity.enums;
 
 import org.springframework.security.core.GrantedAuthority;
 

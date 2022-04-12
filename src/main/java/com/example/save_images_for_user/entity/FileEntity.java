@@ -36,7 +36,6 @@ public class FileEntity {
     @Column(name = "size")
     private long size;
 
-    @Column(name = "tag_id")
     @OneToOne(mappedBy = "fileEntity", cascade = {CascadeType.PERSIST})
     private TagEntity tagEntity;
 
