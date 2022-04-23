@@ -31,12 +31,7 @@ public class FileServiceImpl implements FileService {
     }
 
     @Override
-    public FileEntity update(FileEntity fileEntity) {
-        return this.fileRepository.save(fileEntity);
-    }
-
-    @Override
     public void delete(long id) {
-
+        this.fileRepository.deleteById(id);
     }
 }

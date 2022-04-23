@@ -10,8 +10,6 @@ public interface FileService {
 
     FileEntity create(FileEntity fileEntity);
 
-    FileEntity update(FileEntity fileEntity);
-
     void delete(long id);
 
 }

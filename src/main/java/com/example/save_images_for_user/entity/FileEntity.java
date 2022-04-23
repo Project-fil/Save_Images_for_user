@@ -27,6 +27,9 @@ public class FileEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "name")
+    private String name;
+
     @Column(name = "path")
     private String path;
 
@@ -36,7 +39,7 @@ public class FileEntity {
     @Column(name = "size")
     private long size;
 
-    @OneToOne(mappedBy = "fileEntity", cascade = {CascadeType.PERSIST})
+    @OneToOne(mappedBy = "fileEntity", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private TagEntity tagEntity;
 
     @Column(name = "is_removed")
@@ -65,4 +68,10 @@ public class FileEntity {
         return getClass().hashCode();
     }
 
+    public FileEntity(String name, String path, String contentType, long size) {
+        this.name = name;
+        this.path = path;
+        this.contentType = contentType;
+        this.size = size;
+    }
 }

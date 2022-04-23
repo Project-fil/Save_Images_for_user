@@ -30,6 +30,7 @@ public class TagEntity {
     @Column(name = "tag")
     private String tag;
 
+    @ToString.Exclude
     @OneToOne()
     @JoinColumn(name = "file_id")
     private FileEntity fileEntity;
@@ -60,4 +61,7 @@ public class TagEntity {
         return getClass().hashCode();
     }
 
+    public TagEntity(String tag) {
+        this.tag = tag;
+    }
 }

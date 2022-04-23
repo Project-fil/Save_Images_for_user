@@ -18,3 +18,4 @@ spring:
         format_sql: true
 app:
   secret-word: newSecretJWT
+  image-path: file/image
