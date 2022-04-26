@@ -50,8 +50,7 @@ public class UserControllerImpl implements UserController {
     public ResponseEntity<UserResponse> updateUser(UserUpdateRequest userUpdateRequest) {
         UserEntity user = this.userService.getById(userUpdateRequest.getId());
         UserTransferObject.updateUser(user, userUpdateRequest);
-        return ResponseEntity.ok(UserTransferObject.fromUser(this.userService.update(user)
-        ));
+        return ResponseEntity.ok(UserTransferObject.fromUser(this.userService.update(user)));
     }
 
     @Override

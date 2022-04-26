@@ -29,9 +29,8 @@ public class UserTransferObject {
         );
     }
 
-    public static UserEntity updateUser(UserEntity user, UserUpdateRequest userUpdateRequest) {
+    public static void updateUser(UserEntity user, UserUpdateRequest userUpdateRequest) {
         user.setFirstName(userUpdateRequest.getFirstName());
-        user.setLastName(user.getLastName());
-        return user;
+        user.setLastName(userUpdateRequest.getLastName());
     }
 }

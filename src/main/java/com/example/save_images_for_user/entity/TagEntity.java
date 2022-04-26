@@ -8,6 +8,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 import org.hibernate.annotations.Where;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
 
@@ -18,9 +19,9 @@ import java.util.Objects;
 @Table(name = "tag_table")
 @NoArgsConstructor
 @AllArgsConstructor
-@SQLDelete(sql = "UPDATE tag_table SET is_removed = true WHERE id=?")
-@Where(clause = "is_removed = false")
-public class TagEntity {
+public class TagEntity implements Serializable {
+
+    private static final long serialVersionUID = 2652011154156008041L;
 
     @Id
     @Column(name = "id")
@@ -34,9 +35,6 @@ public class TagEntity {
     @OneToOne()
     @JoinColumn(name = "file_id")
     private FileEntity fileEntity;
-
-    @Column(name = "is_removed")
-    private boolean removed;
 
     @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)

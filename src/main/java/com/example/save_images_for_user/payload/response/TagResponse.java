@@ -5,20 +5,21 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class FileEntityResponse {
+public class TagResponse {
 
     private long id;
 
-    private String path;
+    private String tag;
 
-    @JsonProperty("content_type")
-    private String contentType;
+    @JsonProperty(value = "created_at")
+    private Date cratedAt;
 
-    private long size;
-
-    private TagResponse tagResponse;
+    @JsonProperty(value =  "updated_at")
+    private Date updatedAt;
 
 }

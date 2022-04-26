@@ -18,7 +18,7 @@ public class FileTransferObject {
                 payload.getPath(),
                 payload.getContentType(),
                 payload.getSize(),
-                payload.getTagEntity().getTag()
+                TagTransferObject.fromTag(payload.getTagEntity())
         );
     }
 

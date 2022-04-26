@@ -5,7 +5,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
@@ -18,9 +17,9 @@ public interface FileController {
     void getByPath(@RequestParam(value = "path") String path, HttpServletResponse response) throws IOException;
 
     @PostMapping(value = "file", consumes = MediaType.MULTIPART_FORM_DATA_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    ResponseEntity<Object> createFile(@RequestPart(value = "file") MultipartFile file, HttpServletRequest request) throws IOException;
+    ResponseEntity<Object> createFile(@RequestPart(value = "file") MultipartFile file, @RequestPart(value = "user-id") long id) throws IOException;
 
-    @DeleteMapping("file/{id}")
-    ResponseEntity<Object> delete(@PathVariable long id);
+    @DeleteMapping("file/{id}/{userId}")
+    ResponseEntity<Object> delete(@PathVariable long id, @PathVariable long userId);
 
 }

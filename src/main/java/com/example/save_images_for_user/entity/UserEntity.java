@@ -24,8 +24,6 @@ import java.util.Set;
 @Table(name = "user_table")
 @NoArgsConstructor
 @AllArgsConstructor
-@SQLDelete(sql = "UPDATE user_table SET is_removed = true WHERE id=?")
-@Where(clause = "is_removed = false")
 public class UserEntity implements Serializable, UserDetails {
 
     private static final long serialVersionUID = -5275098236185191797L;
@@ -50,11 +48,8 @@ public class UserEntity implements Serializable, UserDetails {
     @Column(name = "role")
     private RoleType role;
 
-    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @OneToOne()
     private FileEntity fileEntity;
-
-    @Column(name = "is_removed")
-    private boolean removed;
 
     @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)

@@ -15,8 +15,8 @@ public interface UserController {
     @GetMapping("user/{id}")
     ResponseEntity<UserResponse> getById(@PathVariable Long id);
 
-    @GetMapping("user/path/{email}")
-    ResponseEntity<UserResponse> getByEmail(@PathVariable String email);
+    @GetMapping("user/path")
+    ResponseEntity<UserResponse> getByEmail(@RequestParam(value = "email") String email);
 
     @PutMapping("user")
     ResponseEntity<UserResponse> updateUser(@RequestBody UserUpdateRequest userUpdateRequest);

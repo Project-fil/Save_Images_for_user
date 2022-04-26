@@ -31,12 +31,11 @@ public class FileHandler {
     }};
 
     public FileEntity writeFile(MultipartFile file) throws IOException {
-        if (Objects.isNull(file)
-                || !checkFormat(file.getContentType())) {
+        if (Objects.isNull(file) || !checkFormat(file.getContentType())) {
             throw new EntityNotFoundException("Wrong file");
         }
         String fileName = getFileName(file.getOriginalFilename()) + RandomString.make(4) + "." + getExtension(file.getOriginalFilename());
-        String filePath = savePath += "/" + fileName;
+        String filePath = savePath + "/" + fileName;
         byte[] bytes = file.getBytes();
         Path path = Paths.get(filePath);
         Files.write(path, bytes);
@@ -48,12 +47,12 @@ public class FileHandler {
         );
     }
 
-    private static String getFileName(String fileName) {
+    public static String getFileName(String fileName) {
         String[] split = Objects.requireNonNull(fileName).split("\\.");
         return split[0];
     }
 
-    private static String getExtension(String fileExtension) {
+    public static String getExtension(String fileExtension) {
         String[] split = Objects.requireNonNull(fileExtension).split("\\.");
         return split[1];
     }
